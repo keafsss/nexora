@@ -1,0 +1,89 @@
+.mission {
+    &__inner {
+        background: linear-gradient(to bottom, #ffffff 0%, rgba(181, 223, 255, 1) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0;
+    }
+
+    &__chart {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+
+        @media (max-width: 900px) {
+            flex-direction: row;
+            align-items: stretch;
+            padding: 0rem 6rem 0rem 6rem;
+            gap: 3rem;
+
+            @media (max-width: 500px) {
+                gap: 1rem;
+                padding: 0;
+            }
+        }
+    }
+
+    &__curve-desktop {
+        display: block;
+
+        @media (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    &__curve-mobile {
+        display: none;
+
+        @media (max-width: 900px) {
+            display: block;
+            flex-shrink: 0;
+            width: 30px;
+            margin-top: 0;
+        }
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+        width: 100%;
+        align-items: center;
+        margin-top: 20px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            margin-top: 0;
+            padding-left: 20px;
+        }
+    }
+
+    &__card-wrap {
+        transform: translateY(calc(-1 * var(--offset)));
+        transition: transform 0.3s ease;
+
+        @media (max-width: 900px) {
+            transform: none;
+        }
+    }
+
+    &__dot-pulse {
+        animation: pulse 2s ease-in-out infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        r: 8;
+    }
+    50% {
+        opacity: 0.9;
+        r: 15;
+    }
+}

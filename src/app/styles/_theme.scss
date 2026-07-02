@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use 'palette' as *;
+
+$theme: (
+    'text-primary': palette('ink'),
+    'text-secondary': palette('ink-soft'),
+    'text-accent': palette('blue-main'),
+    'text-accent-hero': palette('blue-main'),
+
+    'bg-white': palette('white'),
+    'bg-navbar': palette('smoke-light'),
+    'bg-header-scroll': palette('blue-transparent'),
+    'bg-overlay': palette('ink-soft'),
+
+    'accent': palette('blue-main'),
+
+    'banner-start':palette('banner-start'),
+    'banner-mid': palette('banner-mid'),
+    'banner-end': palette('banner-end'),
+
+);

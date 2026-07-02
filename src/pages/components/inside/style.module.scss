@@ -1,0 +1,193 @@
+.inside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: stretch;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #3B8EF0;
+            letter-spacing: 0.08em;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #111;
+        }
+
+        &-title {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (max-width:900px) {
+            display: flex;
+
+            &-title {
+                display: grid;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 40px;
+                font-weight: 600;
+            }
+
+            h3 {
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        padding-left: 48px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #E0E0E0;
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 5rem;
+        align-items: start;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+
+        &--active::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3B8EF0;
+            z-index: 1;
+        }
+
+        &-number {
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 1;
+            color: #E0E0E0;
+            transition: color 0.2s;
+        }
+
+        &-content {
+            h2 {
+                font-size: 36px;
+                font-weight: 700;
+                color: #111;
+                margin: 0 0 8px;
+                transition: color 0.2s;
+            }
+
+            p {
+                font-size: 20px;
+                line-height: 1.6;
+                color: #666;
+                margin: 0;
+            }
+        }
+
+        &--active {
+            .inside__item-number { color: #3B8EF0; }
+            .inside__item-content h2 { color: #3B8EF0; }
+        }
+    }
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: center;
+
+        &__left {
+            gap: 0;
+            order: 1;
+
+            h3 { font-size: 16px; }
+            h1 { 
+                font-size: 32px; 
+
+                br {
+                    display: none;
+                }
+            }
+            > button { display: none; }
+        }
+
+        &__right {
+            padding-left: 32px;
+            gap: 32px;
+            order: 2;
+
+            &::before { display: block; }
+        }
+
+        &__item {
+            grid-template-columns: 60px 1fr;
+            gap: 6rem;
+            align-items: center;
+
+            &--active::before { left: -32px; }
+
+            &-number { font-size: 82px; }
+
+            &-content {
+                h2 { font-size: 32px; }
+                p { font-size: 16px; }
+
+                @media (max-width:400px) {
+                    h2 { font-size: 24px;}
+                    p { font-size: 16px;}
+                }
+            }
+        }
+
+        &__btn {
+            order: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__btn--desktop {
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+&__btn--mobile {
+    display: none;
+
+    @media (max-width: 900px) {
+        display: flex;
+        justify-content: center;
+        order: 3;
+    }
+}
+}

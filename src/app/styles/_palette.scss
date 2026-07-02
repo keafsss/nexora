@@ -1,0 +1,25 @@
+@use 'sass:map';
+
+$palette: (
+    'white': #ffffff,
+    'ink': #111111,
+    'ink-soft': #444444,
+    'smoke-light': rgba(245, 245, 247, 0.6),
+
+    'blue-main': #1F8BFF,
+    'blue-transparent': rgba(31, 139, 255, 0.23),
+
+
+    'banner-start': #EFF8FF,
+    'banner-mid': #A4D6FF,
+    'banner-end': rgba(60, 167, 255, 0.457)
+);
+
+@function palette($key) {
+    $value: map.get($palette, $key);
+
+    @if $value == null {
+        @warn "palette('#{$key}') не існує в палетці"
+    }
+    @return $value;
+}

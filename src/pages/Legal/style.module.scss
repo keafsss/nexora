@@ -1,0 +1,67 @@
+.legal {
+    max-width: 800px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(221, 222, 225, 1);
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            font-weight: 700;
+            color: #111;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+    &__date {
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+    &__sections {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+            margin: 0;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-left: 1.5rem;
+            list-style: disc;
+
+            li {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #444;
+            }
+        }
+    }
+}

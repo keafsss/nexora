@@ -1,0 +1,241 @@
+.footer {
+    padding: 0 0.5rem 0.5rem;
+
+    &__inner {
+        background: #e1eeff;
+        border-radius: 32px;
+        padding: 3rem 0;
+    }
+
+    &__top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+    }
+
+    &__brand {
+        max-width: 320px;
+
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            margin: 0;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+
+        &-img { width: 40px; height: 40px; }
+        &-text { height: 1.3rem; }
+    }
+
+    &__columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    &__column {
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        a {
+            font-size: 15px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover { color: rgba(31, 139, 255, 1); }
+        }
+    }
+
+    &__column-head {
+        all: unset;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.25rem;
+    }
+
+    &__chevron {
+        display: none;
+    }
+
+    &__divider {
+        height: 1px;
+        background: rgba(31, 139, 255, 0.2);
+        margin: 2.5rem 20px 1.5rem;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        span, a {
+            font-size: 14px;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover { color: rgba(31, 139, 255, 1); }
+        }
+    }
+
+    @media (max-width: 900px) {
+        &__inner {
+            padding: 1.5rem 0.5rem;
+            border-radius: 24px;
+        }
+
+        &__top {
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        &__brand {
+            max-width: 235px;
+            flex-shrink: 0;
+
+            p { font-size: 13px; }
+        }
+
+        &__logo {
+            &-img { width: 32px; height: 32px; }
+            &-text { height: 1.1rem; }
+        }
+
+        &__columns { gap: 3rem; }
+
+        &__column {
+            h4 { font-size: 15px; margin-bottom: 0; }
+            a { font-size: 13px; }
+            ul { gap: 0.75rem; }
+        }
+
+        &__divider { margin: 1.5rem 0; }
+
+        &__bottom {
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        &__top {
+            grid-template-columns: 1fr;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        &__brand {
+            max-width: 100%;
+
+            p { font-size: 14px; }
+        }
+
+        &__logo { justify-content: center; }
+
+        &__columns {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        &__column {
+            width: 100%;
+            padding: 0.5rem 0.5rem;
+
+            h4 {
+                font-size: 17px;
+                margin: 0;
+            }
+        }
+
+        &__column-head {
+            cursor: pointer;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 0;
+        }
+
+        &__column-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            overflow: hidden;
+            transition: grid-template-rows 0.3s ease;
+
+            ul {
+                min-height: 0;
+                padding-top: 1.25rem;
+                gap: 0.85rem;
+            }
+
+            > ul { overflow: hidden; }
+        }
+
+        &__column--open &__column-body {
+            grid-template-rows: 1fr;
+        }
+
+        &__chevron {
+            display: block;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            position: relative;
+            transition: transform 0.3s ease;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: currentColor;
+                mask-image: url('../../../assets/icons/shevron.svg');
+                mask-repeat: no-repeat;
+                mask-position: center;
+                mask-size: contain;
+                -webkit-mask-image: url('../../../assets/icons/shevron.svg');
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-position: center;
+                -webkit-mask-size: contain;
+                color: #111;
+    }
+        }
+
+        &__column--open &__chevron {
+            transform: rotate(180deg);
+        }
+
+        &__divider { display: none; }
+
+        &__bottom {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}

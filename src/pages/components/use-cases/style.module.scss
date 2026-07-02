@@ -1,0 +1,36 @@
+.use {
+    background: rgba(245, 245, 247, 1);
+
+    &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+    }
+
+    &__cards {
+        display: grid;
+        gap: 1rem;
+
+        &-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        &-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            &-top {
+                grid-template-columns: 1fr;
+            }
+
+            &-bottom {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
